@@ -38,6 +38,7 @@ main()
   red='#ff5555'
   pink='#ff79c6'
   yellow='#f1fa8c'
+  sky_blue='#87afff'
 
   # Handle left icon configuration
   case $show_left_icon in
@@ -126,6 +127,10 @@ main()
   tmux set-option -g status-right ""
 
   for plugin in "${plugins[@]}"; do
+    if [ $plugin = "vpn" ]; then
+      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-vpn-colors" "sky_blue dark_gray")
+        script="#($current_dir/vpn_status.sh)"
+    fi
 
     if [ $plugin = "git" ]; then
       IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-git-colors" "green dark_gray")
