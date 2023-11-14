@@ -135,7 +135,7 @@ main()
   for plugin in "${plugins[@]}"; do
     if [ $plugin = "vpn" ]; then
       IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-vpn-colors" "sky_blue dark_gray")
-        script="#($current_dir/vpn_status.sh)"
+      script="#($current_dir/vpn_status.sh)"
     fi
 
     if case $plugin in custom:*) true;; *) false;; esac; then
