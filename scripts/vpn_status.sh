@@ -11,7 +11,7 @@ icon_status_disconnected='🔓'
 vpn_bin="/opt/cisco/secureclient/bin/vpn"
 
 vpn_state() {
-    local state=`$vpn_bin state | grep state | head -1 | tr ":" "\n" | tail -1 | xargs`
+    local state=`$vpn_bin state | grep state | tail -1 | tr ":" "\n" | tail -1 | xargs`
     echo $state
 }
 
