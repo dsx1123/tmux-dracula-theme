@@ -8,7 +8,7 @@ source $current_dir/utils.sh
 icon_status_connected='🔒'
 icon_status_disconnected='🔓'
 
-vpn_bin="/opt/cisco/anyconnect/bin/vpn"
+vpn_bin="/opt/cisco/secureclient/bin/vpn"
 
 vpn_state() {
     local state=`$vpn_bin state | grep state | head -1 | tr ":" "\n" | tail -1 | xargs`
